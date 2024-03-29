@@ -1,5 +1,5 @@
 import { Transaction } from 'src/transaction/entities/transaction.entity';
-import { User } from 'src/user/entities/user.entity';
+import { UserEntity } from 'src/user/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
@@ -19,9 +19,9 @@ export class Category {
   @Column()
   title: string;
 
-  @ManyToOne(() => User, (user) => user.categories)
+  @ManyToOne(() => UserEntity, (user) => user.categories)
   @JoinColumn({ name: 'user_id' })
-  user: User;
+  user: UserEntity;
 
   @OneToMany(() => Transaction, (transaction) => transaction.category)
   transactions: Transaction;
